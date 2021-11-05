@@ -26,16 +26,9 @@ module purge
 
 module load fastqc/0.11.7
 
+INPUT=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/*.trimmed.fastq.gz)
 
-
-###INPUTS=(/home/thiamf/work_agap/DEFI/nuclear_data/R1_R2_nuclear_data/*fastq.gz)
-
-###INPUTS=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_not_trim/*fastq.gz)
-###fastqc ${INPUTS[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/fastqc_output_avant_trim
-###fastqc ${INPUTS[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/fastqc_output_apres_trim2
-INPUT2=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/*.trimmed.fastq.gz)
-
-fastqc ${INPUT2[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/fastqc_trim
+fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/fastqc_trim
 
 
 
