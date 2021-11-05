@@ -8,7 +8,7 @@
 
 #
 #SBATCH --partition=agap_long   ### Partition
-####SBATCH --array=0-111%14 
+#SBATCH --array=0-111%14 
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=5
