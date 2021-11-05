@@ -16,10 +16,7 @@
 #SBATCH --cpus-per-task=5
 #SBATCH --mem-per-cpu=4G
 
-
-
 module purge
-
 
 module load bowtie2/2.4.2
 module load samtools/1.2
@@ -30,16 +27,9 @@ module load samtools/1.2
 
 
 ###bowtie2 -f -x Dalata -U Baits_Capture_RADlocus_Alata-Numularia-1.fasta -S mapping_Dalata_baits.sam
-###l'option -f correspond au infput format fasta et l'option -q correspond aux input format fatq (comme les reads par rexemple)
+###l'option -f correspond au infput format fasta et l'option -q correspond aux input format fastq 
 ###sample=$(ls -la /nfs/work/agap/DEFI/R1_R2_nuclear_data_trim/*1P.trimmed.fastq.gz|awk 'split($9, a,"/") {print a[7]}'|awk -F"_" '{print $1}')
-###for infile in *sorted.bam; do
-###	base=$(echo ${infile} | sed "s/.sorted\.bam//"); echo ${base}_sorted.bam 
-###	samtools view -b -f 4 ${base}_sorted.bam > ${base}_unmapped_reds.bam
-###done
 
-###samtools index -b ${base}.bam $base
-##samtools sort ${base}.bam ${base}_sorted
-###done
 
 ###for i in *_1P.trimmed.fastq.gz; do
 ###	base=$(basename $i _1P.trimmed.fastq.gz); echo ${base}_1P.trimmed.fastq.gz ${base}_2P.trimmed.fastq.gz
@@ -48,9 +38,9 @@ module load samtools/1.2
 
 for i in *_unmapped_reads.bam; do
 	base=$(basename $i _unmapped_reads.bam); echo ${base}_unmapped_reads.bam
-	###samtools sort ${base}.bam ${base}_sorted
-	###samtools index -b ${base}_sorted.bam 
-	###samtools view -b -f 12 ${base}_sorted.bam > ${base}_unmapped_reads.bam
-	samtools sort -n ${base}_unmapped_reads.bam ${base}_unmapped_reads_sorted
+	### 1) samtools sort ${base}.bam ${base}_sorted
+	### 2) samtools index -b ${base}_sorted.bam 
+	### 3) samtools view -b -f 12 ${base}_sorted.bam > ${base}_unmapped_reads.bam
+	samtools sort -n ${base}_unmapped_reads.bam ${base}_unmapped_reads_sorted (dernière partie à exécuter)
 done
 
