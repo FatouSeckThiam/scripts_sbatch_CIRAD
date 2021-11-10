@@ -25,3 +25,5 @@ for infile in *trinity; do
         base=$(echo ${infile} | sed "s/.trinity//"); echo ${base}.trinity
 	rename.sh in=${base}.trinity/Trinity.fasta out=${base}.trinity/${base}.fasta prefix=${base}
 done
+ ## En bash sans passer par bbmap
+ for i in *.fasta; do base=$(basename $i .fasta); sed -e 's/^>.*$/>'$base'/' $i; done 
