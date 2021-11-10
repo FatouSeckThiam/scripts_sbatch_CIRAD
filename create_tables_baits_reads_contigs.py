@@ -26,7 +26,7 @@ concat_reads
 concat_reads=concat_reads.replcae(np.nan, 0)
 concat_reads=concat_reads.astype(int)
 
-# exporter le tableau au format csv
+# exporter le tableau au format csv 
 concat_reads.to_csv("mapping_reads_contig.csv", sep=";")
 mapping_reads_contig = concat_reads.copy()
 ###3) Définition des fonctions
