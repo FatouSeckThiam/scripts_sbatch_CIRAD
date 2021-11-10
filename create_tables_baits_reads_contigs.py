@@ -12,7 +12,7 @@ concat_baits=pd.concat((pd.read_csv(file, sep = " ", index_col = 0)
  # remplacer les valeurs nulle (NaN) par 0 et conversion en entier                    
 concat_baits=concat_baits.replace(np.nan, 0) 
 concat_baits=concat_baits.astype(int)
-
+blast_baits_contig = concat_baits.copy()
  # exporter le tableau au format csv 
 concat_baits.to_csv("blast_baits_contig.csv", sep= ";")
 
