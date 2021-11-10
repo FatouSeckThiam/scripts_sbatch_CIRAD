@@ -40,7 +40,7 @@ for i in *_unmapped_reads.bam; do
 	base=$(basename $i _unmapped_reads.bam); echo ${base}_unmapped_reads.bam
 	### 1) samtools sort ${base}.bam ${base}_sorted
 	### 2) samtools index -b ${base}_sorted.bam 
-	### 3) samtools view -b -f 12 ${base}_sorted.bam > ${base}_unmapped_reads.bam
-	samtools sort -n ${base}_unmapped_reads.bam ${base}_unmapped_reads_sorted ###(dernière partie à exécuter)
+	### 3) samtools view -b -f 12 ${base}_sorted.bam > ${base}_unmapped_reads.bam ###l'option -f12 permets de recupérer les paires de reads non mappées
+	samtools sort -n ${base}_unmapped_reads.bam ${base}_unmapped_reads_sorted ###(dernière partie à exécuter. Le trie par nom (option -n) permets de reconvertir les bam en fastq)
 done
 
