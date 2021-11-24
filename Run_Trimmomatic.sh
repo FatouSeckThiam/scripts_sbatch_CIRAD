@@ -25,8 +25,8 @@ module load java/jre1.8.0_31
 
 ###  2) 
 ###INNPUT=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_not_trim/*R1_001.fastq.gz)
-###file=$(INPUT[$SLURM_ARRAY_TASK_ID])
-###base=$(basename $(file) _*R1_001.fastq.gz)
+###file=${INPUT[$SLURM_ARRAY_TASK_ID]}
+###base=$(basename $file _*R1_001.fastq.gz)
 ####trimmomatic PE -threads 5 -phred33 ${base}_R1_001.fastq.gz ${base}_R2_001.fastq.gz ${base}_1P.trimmed.fastq.gz ${base}_1U.trimmed.fastq.gz ${base}_2P.trimmed.fastq.gz 
 ###${base}_2U.trimmed.fastq.gz ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 	
