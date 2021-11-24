@@ -23,7 +23,10 @@
 module purge
 module load bowtie2/2.4.2
 module load samtools/1.10
-for infile in /home/thiamf/work_agap/DEFI/R1_R2_nuclear_data_trim/*1P.trimmed.fastq.gz; do base=$(echo ${infile} | sed "s/_1P.trimmed\.fastq\.gz//"); echo ${base}_1P.trimmed.fastq.gz ${base}_2P.trimmed.fastq
+
+FILES = ( /home/thiamf/work_agap/DEFI/R1_R2_nuclear_data_trim/*1P.trimmed.fastq.gz)
+read=${FILES[$SLURM_ARRAY_TASK_ID]}
+base=$(basename $read _1P.trimmed.fastq.gz)
 bowtie2 -x Dalata_chloro -1 ${base}_1P.trimmed.fastq.gz -2 ${base}_2P.trimmed.fastq.gz -S samples_Dalata_chloro.sam
 done
 
