@@ -30,8 +30,8 @@ done
 Tourner en array
 
 INPUT=(PATH/*unmapped_reads_sorted.bam)
-FILE=$(INPUT[$SLURM_ARRAY_TASK_ID-1])
-base=$(basename $(FILE) _unmapped_reads_sorted.bam)
+FILE=${INPUT[$SLURM_ARRAY_TASK_ID]}
+base=$(basename $FILE _unmapped_reads_sorted.bam)
 bamToFastq -i ${base}_unmapped_reads_sorted.bam -fq ${base}_unmapped_reads_R1.fq -fq2 ${base}_unmapped_reads_R2.fq
 
 
