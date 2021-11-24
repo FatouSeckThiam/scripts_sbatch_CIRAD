@@ -29,22 +29,11 @@ module load samtools/1.2
 ###bowtie2 -x Dalata -1 ${R1[${SLURM_ARRAY_TASK_ID}]} -2 ${R2[${SLURM_ARRAY_TASK_ID}]} -S out.sam
 
 
-###bowtie2 -f -x Dalata -U Baits_Capture_RADlocus_Alata-Numularia-1.fasta -S mapping_Dalata_baits.sam
-###l'option -f correspond au infput format fasta et l'option -q correspond aux input format fatq (comme les reads par rexemple)
-###sample=$(ls -la /nfs/work/agap/DEFI/R1_R2_nuclear_data_trim/*1P.trimmed.fastq.gz|awk 'split($9, a,"/") {print a[7]}'|awk -F"_" '{print $1}')
-###for infile in *sorted.bam; do
-###	base=$(echo ${infile} | sed "s/.sorted\.bam//"); echo ${base}_sorted.bam 
-###	samtools view -b -f 4 ${base}_sorted.bam > ${base}_unmapped_reds.bam
-###done
-
 ###samtools index -b ${base}.bam $base
 ##samtools sort ${base}.bam ${base}_sorted
 ###done
 
-###for i in *_1P.trimmed.fastq.gz; do
-###	base=$(basename $i _1P.trimmed.fastq.gz); echo ${base}_1P.trimmed.fastq.gz ${base}_2P.trimmed.fastq.gz
-###	bowtie2 -p 4 -x /home/thiamf/scratch/Fatou/Dalata -1 ${base}_1P.trimmed.fastq.gz -2 ${base}_2P.trimmed.fastq.gz | samtools view -bS - > ${base}.bam
-###done
+
 
 for i in *_unmapped_reads.bam; do
 	base=$(basename $i _unmapped_reads.bam); echo ${base}_unmapped_reads.bam
