@@ -25,8 +25,9 @@ module purge
 
 
 module load fastqc/0.11.7
+###INPUT1=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_not_trim/*.fastq.gz) ### fastqc avant trim
 
-INPUT=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/*.trimmed.fastq.gz)
+INPUT2=(/home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/*.trimmed.fastq.gz)
 
 fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/new_run/R1_R2_new_run_trim/fastqc_trim
 
