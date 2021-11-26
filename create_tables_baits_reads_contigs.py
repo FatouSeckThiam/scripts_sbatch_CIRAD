@@ -5,21 +5,22 @@ from glob import glob
 
 ### 1) Création matrice pour compter le nombre de contig par baits à partir du blast
 
-tab_baits=sorted(glob('/home/thiam/count_contig/*Contigs_groupBy_Baits'))
+tab_blast_baits=sorted(glob('/home/thiam/count_contig/*Contigs_groupBy_Baits'))
 concat_baits=pd.concat((pd.read_csv(file, sep = " ", index_col = 0)
-                       for file in tab_baits), axis = 1)
+                       for file in tab_blast_baits), axis = 1)
  
  # remplacer les valeurs nulle (NaN) par 0 et conversion en entier                    
 concat_baits=concat_baits.replace(np.nan, 0) 
 concat_baits=concat_baits.astype(int)
 #blast_baits_contig = concat_baits.copy()
- # exporter le tableau au format csv 
+
+# exporter le tableau au format csv 
 concat_baits.to_csv("blast_baits_contig.csv", sep= ";")
 
 ### 2) Création matrice pour compter le nombre de reads par baits à partir du mapping et du blast 
-
+tab_mapping_reads=sorted(glob('/home/thiam/count_contig/*Contigs_groupBy_Baits'))
 concat_reads = pd.concat((pd.read_csv(file, sep = " ", index_col = 0)
-                       for file in tab_mapping_read), axis = 1)
+                       for file in tab_mapping_reads), axis = 1)
 concat_reads
 
 # remplacer les valeurs nulles par 0 et conversion en entier
