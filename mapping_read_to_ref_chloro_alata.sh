@@ -31,6 +31,8 @@ FILES=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Trimming/*1P.trimmed.fastq.gz)
 read=${FILES[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $read _1P.trimmed.fastq.gz)
 bowtie2 -x Dalata_chloro -1 ${base}_1P.trimmed.fastq.gz -2 ${base}_2P.trimmed.fastq.gz | samtools view -bS - > ${base}.bam
+#Dalata_chloro correspond à l'index de la séquence de référence	Dalata chloroplaste
+
 
 
 
