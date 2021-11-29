@@ -26,8 +26,6 @@ module load samtools/1.2
 
 for i in *_nuclear_reads.bam; do
 	base=$(basename $i _nuclear_reads.bam); echo ${base}_nuclear_reads.bam
-	###samtools sort ${base}.bam ${base}_sorted 
-	###samtools index -b ${base}_sorted.bam 
 	###samtools view -b -f 12 ${base}_sorted.bam > ${base}_nuclear_reads.bam
 	samtools sort -n ${base}_nuclear_reads.bam ${base}_nuclear_reads_sorted
 done
