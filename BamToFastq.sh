@@ -21,29 +21,16 @@
 module purge
 module load bedtools/2.30.0
 
-Tourner en Boucle
-for i in *unmapped_reads_sorted.bam; do
-	base=$(basename $i _unmapped_reads_sorted.bam); echo ${base}_unmapped_reads_sorted.bam
-	bamToFastq -i ${base}_unmapped_reads_sorted.bam -fq ${base}_unmapped_reads_R1.fq -fq2 ${base}_unmapped_reads_R2.fq
-done 
-
-Tourner en array
-
-INPUT=(PATH/*unmapped_reads_sorted.bam)
+INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/05_Nuclear_Reads_Extraction_bamfiles/*nuclear_reads_sorted.bam)
 FILE=${INPUT[$SLURM_ARRAY_TASK_ID]}
-base=$(basename $FILE _unmapped_reads_sorted.bam)
-bamToFastq -i ${base}_unmapped_reads_sorted.bam -fq ${base}_unmapped_reads_R1.fq -fq2 ${base}_unmapped_reads_R2.fq
+base=$(basename $FILE _nuclear_reads_sorted.bam)
+bamToFastq -i ${base}_nuclear_reads_sorted.bam -fq ${base}_nuclear_reads_R1.fq -fq2 ${base}_nuclear_reads_R2.fq
 
 
 	
 	
 	
 	
-
-
-
-
-
 
 
 
