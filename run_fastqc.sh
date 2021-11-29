@@ -18,7 +18,7 @@
 
 #SBATCH --ntasks=1 
 
-#SBATCH --array=0-115%5            ### Array index from 0 to 19 with 4 running jobs
+#SBATCH --array=0-469%5            ### Array index from 0 to 19 with 4 running jobs
 
 module purge
 
