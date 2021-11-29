@@ -25,7 +25,7 @@ module purge
 
 
 module load fastqc/0.11.7
-INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/00_Raw_Reads/*.fastq.gz)
+INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/00_Raw_Reads/*R*.fastq.gz)
 fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/Data_Fatou/01_QualityControl_FastQC_MultiQC
 # Pour faire tourner multiqc, se mettre dans le répertoire de sortie fastqc(01_QualityControl_FastQC_MultiQC), et faire multiqc .
 
