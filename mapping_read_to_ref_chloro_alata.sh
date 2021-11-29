@@ -27,6 +27,9 @@ module load samtools/1.2
 ###bowtie2 -f -x Dalata -U Baits_Capture_RADlocus_Alata-Numularia-1.fasta -S mapping_Dalata_baits.sam
 ### l'option -f correspond au input format fasta et l'option -q correspond aux input format fastq (comme les reads par rexemple)
 
+# Dalata_chloro correspond à l'index de la séquence de référence Dalata chloroplaste
+# bowtie2-build Dalata_chloro_sequence_ref.fasta Dalata_chloro
+
 FILES=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Trimming/*1P.trimmed.fastq.gz)
 read=${FILES[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $read _1P.trimmed.fastq.gz)
