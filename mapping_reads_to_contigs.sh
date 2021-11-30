@@ -28,6 +28,7 @@ base=$(basename $input _reads_mapping_sorted.bam)
 ###bwa mem -t 4 ${base}.fasta ../${base}_unmapped_reads_R1.fq  ../${base}_unmapped_reads_R2.fq | samtools view -bS - > ${base}_reads_mapping.bam
 ###samtools sort ${base}_reads_mapping.bam ${base}_reads_mapping_sorted
 samtools index ${base}_reads_mapping_sorted.bam 	
+###les fichiers	R1.fq et R2.fq sont le répertoire 06_BamToFastq_Reads
 
 
 
