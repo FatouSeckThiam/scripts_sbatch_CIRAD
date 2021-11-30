@@ -22,8 +22,8 @@ module load ncbi-blast/2.6.0+-bin
 
 for infile in *fasta; do
 	base=$(echo ${infile} | sed "s/\.fasta//"); echo ${base}.fasta
-	###makeblastdb -in ${base}.fasta -title ${base} -out ${base} -dbtype nucl ### pour creer la base de données à partir des contig (.fasta)
-	blastn -query Baits_Capture_RADlocus_Alata-Numularia-1.fasta -db ${base} -outfmt "6 qseqid sseqid qlen slen sstart send qstart qend lenght evalue" > ${base}.tsv
+	#1) makeblastdb -in ${base}.fasta -title ${base} -out ${base} -dbtype nucl # pour creer la base de données à partir des contig (.fasta)
+	#2) blastn -query Baits_Capture_RADlocus_Alata-Numularia-1.fasta -db ${base} -outfmt "6 qseqid sseqid qlen slen sstart send qstart qend lenght evalue" > ${base}.tsv #partie blast
 
 done
 
