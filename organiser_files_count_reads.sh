@@ -24,7 +24,7 @@ module purge
 ### on pouvait ne pas faire de redirections et écrire directement dans le fichier en remplacant l'option -e de sed par -i 
 
 for infile in *count_reads.csv; do
-	base=$(basename $infile _count_reads.csv); awk '{print $1,$3}' ${base}_count_reads.csv | awk -F' ' 'BEGIN {OFS=" "} { print $2,$1 }' | sed -e '1i\ \'${base} > ${base}_with_ID_concat        
+	base=$(basename $infile _count_reads.csv); awk '{print $1,$3}' ${base}_count_reads.csv | awk -F' ' 'BEGIN {OFS=" "} { print $2,$1 }' | sed -e '1i\ \'${base} > ${base}_with_ID       
 done
 
 
