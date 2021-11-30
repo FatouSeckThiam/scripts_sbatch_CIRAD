@@ -12,6 +12,7 @@
 #SBATCH --partition=agap_normal   ### Partition
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
+#SBATCH --array=0-469%5
 #SBATCH --cpus-per-task=5
 #SBATCH --mem-per-cpu=4G
 
