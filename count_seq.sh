@@ -21,7 +21,7 @@
 
 
 
-liste= ls -la R1_R2_nuclear_data_trim/*2P.trimmed.fastq.gz |awk 'split($9, a,"/"){print a[2]}'|awk -F"_" '{print $1}'
+liste= ls -la 00_Raw_Reads/*R1*.fastq.gz |awk 'split($9, a,"/"){print a[2]}'|awk -F"_" '{print $1}'
 for i in ${liste}; do zcat $i | echo -ne $i "\t" $((`wc -l`/4)); done > liste_count
 
 ####for i in $(less liste_count); do echo $(($i*2)); done > count_reads_trim
