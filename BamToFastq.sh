@@ -12,7 +12,7 @@
 #SBATCH --partition=agap_long   ### Partition
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-####SBATCH --array=0-113%10            ### Array index from 0 to 19 with 4 running jobs
+####SBATCH --array=0-222%20            ### Array index from 0 to 19 with 4 running jobs
 #SBATCH --cpus-per-task=5
 #SBATCH --mem-per-cpu=4G
 
