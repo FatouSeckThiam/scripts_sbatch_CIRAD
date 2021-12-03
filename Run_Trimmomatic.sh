@@ -17,7 +17,7 @@ module purge
 module load trimmomatic/0.39 
 module load java/jre1.8.0_31
 ###Tourner en Array
-INNPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/00_Raw_Reads/*R1_001.fastq.gz)
+INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/00_Raw_Reads/*R1_001.fastq.gz)
 file=${INPUT[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $file _*R1_001.fastq.gz)
 trimmomatic PE -threads 5 -phred33 ${base}_R1_001.fastq.gz ${base}_R2_001.fastq.gz ${base}_1P.trimmed.fastq.gz ${base}_1U.trimmed.fastq.gz ${base}_2P.trimmed.fastq.gz 
