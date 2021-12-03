@@ -25,7 +25,7 @@ module load samtools/1.2
 
 #Penser à adapter les chemins des fichiers d'entrée en cas de besoin.
 
-for i in PATH/04_Mapping_Reads_To_Ref_Chloro/*_sorted.bam; do
+for i in PATH/04_Mapping_Reads_To_Ref_Chloro/Data/*_sorted.bam; do
         base=$(basename $i _sorted.bam); echo ${base}_sorted.bam
         #1) samtools view -b -f 12 ${base}_sorted.bam > ${base}_nuclear_reads.bam    #extraction des reads nucleaires au format bam avec l'option f 12 de samtools view
         #2) samtools sort -n ${base}_nuclear_reads.bam ${base}_nuclear_reads_sorted  #Tri des fichiers bam nucleaires par nom (non pas par postion) avec l'option -n de samtools sort
