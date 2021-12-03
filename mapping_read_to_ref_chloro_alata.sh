@@ -29,7 +29,7 @@ module load samtools/1.2
 # bowtie2-build Dalata_chloro_sequence_ref.fasta Dalata_chloro
 
 #1) Mapper les reads sur la référence chloroplase de Dalata
-FILES=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Trimming/*1P.trimmed.fastq.gz)
+FILES=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Cleaning_reads/Data/*1P.trimmed.fastq.gz)
 read=${FILES[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $read _1P.trimmed.fastq.gz)
 bowtie2 -x Dalata_chloro -1 ${base}_1P.trimmed.fastq.gz -2 ${base}_2P.trimmed.fastq.gz | samtools view -bS - > ${base}.bam
@@ -40,8 +40,6 @@ bowtie2 -x Dalata_chloro -1 ${base}_1P.trimmed.fastq.gz -2 ${base}_2P.trimmed.fa
 #       base=$(basename $i .bam); echo ${base}.bam
 #       samtools sort ${base}.bam ${base}_sorted
 #       samtools index -b ${base}_sorted.bam
-
-
 #done
 
 
