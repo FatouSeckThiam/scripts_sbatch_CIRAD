@@ -14,19 +14,21 @@
 
 #SBATCH --time=01:00:00           ### WallTime
 
-#SBATCH --nodes=1                 
+#SBATCH --nodes=1
 
-#SBATCH --ntasks=1 
+#SBATCH --ntasks=1
 
 #SBATCH --array=0-469%5            ### Array index from 0 to 19 with 4 running jobs
 
 module purge
-
-
-
 module load fastqc/0.11.7
-INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/00_Raw_Reads/*R*.fastq.gz)
-fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/Data_Fatou/01_QualityControl_FastQC_MultiQC
-# Pour faire tourner multiqc, se mettre dans le répertoire de sortie fastqc(01_QualityControl_FastQC_MultiQC), et faire multiqc .
+
+
+INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Cleaning_Reads/Data/*P.trimmed.fastq.gz)
+fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/Data_Fatou/03_Post_Quality_Control_FastQC_MultiQC/Data
+# Pour faire tourner multiqc, se mettre dans le répertoire de sortie 03_Post_Quality_Control_FastQC_MultiQC/Data, et mettre la commande multiqc .
+
+
+
 
 
