@@ -23,6 +23,7 @@
 module purge
 module load fastqc/0.11.7
 
+#Penser à changer les chemins des fichiers d'entrée 
 
 INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/02_Cleaning_Reads/Data/*P.trimmed.fastq.gz)
 fastqc ${INPUT[$SLURM_ARRAY_TASK_ID]} -o /home/thiamf/scratch/Fatou/Data_Fatou/03_Post_Quality_Control_FastQC_MultiQC/Data
