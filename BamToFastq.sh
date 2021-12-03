@@ -21,7 +21,7 @@
 module purge
 module load bedtools/2.30.0
 
-INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/05_Nuclear_Reads_Extraction_bamfiles/*nuclear_reads_sorted.bam)
+INPUT=(/home/thiamf/scratch/Fatou/Data_Fatou/05_Nuclear_Reads_Extraction_bamfiles/Data/*nuclear_reads_sorted.bam)
 FILE=${INPUT[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $FILE _nuclear_reads_sorted.bam)
 bamToFastq -i ${base}_nuclear_reads_sorted.bam -fq ${base}_nuclear_reads_R1.fq -fq2 ${base}_nuclear_reads_R2.fq
