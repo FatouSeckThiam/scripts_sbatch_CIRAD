@@ -3,11 +3,8 @@
 #
 
 #SBATCH -J bowtie               ### Job name
-
 #SBATCH -o bowtie."%j".out          ### Standard output
-
 #SBATCH -e bowtie."%j".err          ### Standard error
-
 #
 #SBATCH --partition=agap_long   ### Partition
 #SBATCH --nodes=1
@@ -16,10 +13,7 @@
 #SBATCH --cpus-per-task=5
 #SBATCH --mem-per-cpu=4G
 
-
-
 module purge
-
 
 module load bowtie2/2.4.2
 module load samtools/1.2
