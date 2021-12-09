@@ -10,7 +10,7 @@
 #SBATCH --array=0-98%10            ### Array index from 0 to 98 with 10 running jobs
 #SBATCH --cpus-per-task=5
 #SBATCH --mem-per-cpu=4G
-
+ #eviter conflitstools
 module purge
 
 module load cutadapt/3.1
