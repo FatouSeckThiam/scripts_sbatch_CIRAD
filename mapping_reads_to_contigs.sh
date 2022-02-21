@@ -22,7 +22,7 @@ module purge
 module load samtools/1.2
 ###module load bwa/0.7.17    #enlever commentaire pour faire le mapping
 bamfile=(*_reads_mapping_sorted.bam)
-input=${bamfile[$SLUR_ARRAY_TASK_ID]}
+input=${bamfile[$SLURM_ARRAY_TASK_ID]}
 base=$(basename $input _reads_mapping_sorted.bam)
 #1) bwa index ${base}.fasta ${base}
 #2) bwa mem -t 4 ${base}.fasta ../${base}_unmapped_reads_R1.fq  ../${base}_unmapped_reads_R2.fq | samtools view -bS - > ${base}_reads_mapping.bam
